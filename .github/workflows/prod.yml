@@ -27,7 +27,7 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: argocd/test:${{ github.sha }}
+          tags: 10mindesign/argocd:${{ github.sha }}
 
       # - name: Clone manifest repo, update image to letest sha and push    
       #   env:
