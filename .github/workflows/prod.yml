@@ -34,9 +34,9 @@ jobs:
           PAT: ${{ secrets.PAT }}
         run: |
           git clone https://github.com/10MinDesign-Invite/k8s.git  
-          cd k8s/argocd
+          cd k8s
 
-          sed -i "s|image: .*argocd:.*|image: 10mindesign/argocd:${{ github.sha }}|" pod.yml
+          sed -i "s|image: .*argocd:.*|image: 10mindesign/argocd:${{ github.sha }}|" argocd/pod.yml
 
           git config user.name "Github Actions Bot"
           git config user.email "actions@github.com"
