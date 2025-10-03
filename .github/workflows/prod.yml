@@ -35,9 +35,10 @@ jobs:
         run: |
           git clone https://github.com/10MinDesign-Invite/k8s.git  
           cd k8s
-
+          cd argocd
           sed -i "s|image: 10mindesign/argocd:.*|image: 10mindesign/argocd:${{ github.sha }}|" pod.yml
-
+          cd ..
+          
           git config user.name "Github Actions Bot"
           git config user.email "actions@github.com"
           git add .
