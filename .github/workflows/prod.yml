@@ -29,17 +29,17 @@ jobs:
           push: true
           tags: 10mindesign/argocd:${{ github.sha }}
 
-      # - name: Clone manifest repo, update image to letest sha and push    
-      #   env:
-      #     PAT: ${{ secrets.PAT }}
-      #   run: |
-      #     git clone https://github.com/10MinDesign-Invite/k8s.git  
-      #     cd k8s
+      - name: Clone manifest repo, update image to letest sha and push    
+        env:
+          PAT: ${{ secrets.PAT }}
+        run: |
+          git clone https://github.com/10MinDesign-Invite/k8s.git  
+          cd k8s
 
-      #     sed -i 's|image:argocd/test:.*|image: argocd/test:${{ github.sha }}|' argocd/prod.yml 
+          sed -i 's|image:argocd/test:.*|image: argocd/test:${{ github.sha }}|' argocd/prod.yml 
 
-      #     git config user.name "Github Actions Bot"
-      #     git config user.email "actions@github.com"
-      #     git add .
-      #     git commit -m "update image tag to latest ${{ github.sha }}"
-      #     git push https://${{PAT}}github.com/10MinDesign-Invite/k8s.git main
+          git config user.name "Github Actions Bot"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "update image tag to latest ${{ github.sha }}"
+          git push https://${{PAT}}github.com/10MinDesign-Invite/k8s.git main
