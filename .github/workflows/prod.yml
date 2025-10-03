@@ -34,7 +34,7 @@ jobs:
           PAT: ${{ secrets.PAT }}
         run: |
           git clone https://github.com/10MinDesign-Invite/k8s.git  
-          cd k8s/argocd
+          cd k8s
 
           sed -i "s|image: 10mindesign/argocd:.*|image: 10mindesign/argocd:${{ github.sha }}|" pod.yml
 
